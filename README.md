@@ -79,19 +79,20 @@ In this example I'm using TailwindCSS for making simple layout and design.
 
 There are currently 3 JavaScript implementations.
 
+
 ### VanillaJS
-- `/variants/vanillajs/index.html`
-- `/variants/vanillajs/script.js`
-    - `/variants/vanillajs/action.js`
-    - `/variants/vanillajs/animator.js`
+- [index.html](variants/vanillajs/index.html)
+- [script.js](variants/vanillajs/script.js)
+    - [action.js](variants/vanillajs/action.js)
+    - [animator.js](variants/vanillajs/animator.js)
 
 ### jQuery
-- `/variants/jquery/index.html`
-- `/variants/jquery/script.js`
+- [index.html](variants/jquery/index.html)
+- [script.js](variants/jquery/script.js)
 
 ### Alpine.js
-- `/variants/alpinejs/index.html`
-- `/variants/alpinejs/script.js`
+- [index.html](variants/alpinejs/index.html)
+- [script.js](variants/alpinejs/script.js)
 
 ## Backend
 
