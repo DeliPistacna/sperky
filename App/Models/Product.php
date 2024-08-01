@@ -2,7 +2,6 @@
 
 namespace Sperky\App\Models;
 
-use InvalidArgumentException;
 use Sperky\App\Repositories\ProductRepository;
 
 class Product extends Model

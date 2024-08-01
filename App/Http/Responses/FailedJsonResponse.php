@@ -3,8 +3,6 @@
 namespace Sperky\App\Http\Responses;
 
 
-use LogicException;
-
 class FailedJsonResponse extends JsonResponse
 {
 	

@@ -2,9 +2,6 @@
 
 namespace Sperky\App\Repositories;
 
-use InvalidArgumentException;
-use PDO;
-use Sperky\App\Database\Database;
 use Sperky\App\Database\Query;
 
 class AttributeRepository extends Repository

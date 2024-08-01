@@ -2,7 +2,6 @@
 
 namespace Sperky\App\Models;
 
-use InvalidArgumentException;
 use Sperky\App\Repositories\AttributeRepository;
 
 class Attribute extends Model

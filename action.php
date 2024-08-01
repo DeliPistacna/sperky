@@ -41,27 +41,3 @@ $response = $actionHandler->handle($action, $data);
 
 // Send response to client
 $response->send();
-
-/*
- * Alternatively this can also be done directly via factory if we know what ActionEnum to use:
- * ActionStrategyFactory::getStrategy(ActionsEnum::GET_WAREHOUSE_VALUE) // Get strategy
- *      ->execute($data) // Execute strategy
- *      ->send(); // Send JSON Response
- *
- * Or directly via strategy:
- * ( new GetWarehouseValueStrategy() ) // Get strategy
- *      ->execute($data) // Execute strategy
- *      ->send(); // Send JSON Response
- *
- * ( new GetWarehouseValueStrategy() ) // Get strategy
- *      ->execute($data) // Execute strategy
- *      ->response; // get response value, in this case its integer
- *
- * Or skip strategy and go directly to Product
- * Product::getWarehouseValue(); // int value
- *
- * We can also create JSON response via provided classes:
- * ( new JsonResponse( Product::getWarehouseValue()) )->send(); // Send JSON Response
- */
-
-

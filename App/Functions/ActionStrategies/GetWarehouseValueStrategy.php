@@ -3,7 +3,6 @@
 namespace Sperky\App\Functions\ActionStrategies;
 
 use Sperky\App\Http\Responses\JsonResponse;
-use Sperky\App\Http\Responses\Response;
 use Sperky\App\Interfaces\ActionStrategyInterface;
 use Sperky\App\Interfaces\ResponseInterface;
 use Sperky\App\Models\Product;

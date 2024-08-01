@@ -3,8 +3,6 @@
 namespace Sperky\App\Http\Responses;
 
 
-use Sperky\App\Interfaces\ResponseInterface;
-
 class JsonResponse extends Response
 {
 	/**

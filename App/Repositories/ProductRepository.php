@@ -2,7 +2,6 @@
 
 namespace Sperky\App\Repositories;
 
-use InvalidArgumentException;
 use Sperky\App\Database\Query;
 
 class ProductRepository extends Repository
