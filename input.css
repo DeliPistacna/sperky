@@ -6,6 +6,11 @@
     display: none !important;
 }
 
+body {
+    background: white;
+    color: black;
+}
+
 #circlewrap {
     position: absolute;
     top: 50%;
