@@ -139,7 +139,7 @@ ActionStrategyFactory::getStrategy(ActionsEnum::GET_WAREHOUSE_VALUE) // Get stra
 3. **Directly Using Product**
 
 ```php
-Product::getWarehouseValue(); // int value
+Product::getWarehouseValue(); // float value
 ```
 
 4. **Creating JSON Response Directly**
