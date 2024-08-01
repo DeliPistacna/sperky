@@ -4,6 +4,7 @@ namespace Sperky\App\Database;
 
 use PDO;
 use PDOException;
+use PDOStatement;
 use RuntimeException;
 
 
@@ -23,14 +24,15 @@ class Query
 	
 	
 	private PDO $connection;
-	
+	protected PDOStatement $statement;
 	
 	private function __construct(
-		protected string $statement,
+		string $statement,
 		protected array  $parameters = [],
 	)
 	{
 		$this->connection = Database::getInstance()->getConnection();
+		$this->statement = $this->connection->prepare($statement);
 	}
 	
 	
@@ -58,9 +60,8 @@ class Query
 	public function getRows(?array $parametersOverride = null): array
 	{
 		try {
-			$statement = $this->connection->prepare($this->statement);
-			$statement->execute($parametersOverride ?: $this->parameters);
-			$results = $statement->fetchAll(PDO::FETCH_ASSOC);
+			$this->statement->execute($parametersOverride ?: $this->parameters);
+			$results = $this->statement->fetchAll(PDO::FETCH_ASSOC);
 			
 			return array_map(function ($row) {
 				return new Row($row);
@@ -81,9 +82,8 @@ class Query
 	public function getRowsAsArray(?array $parametersOverride = null): array
 	{
 		try {
-			$statement = $this->connection->prepare($this->statement);
-			$statement->execute($parametersOverride ?: $this->parameters);
-			return $statement->fetchAll(PDO::FETCH_ASSOC);
+			$this->statement->execute($parametersOverride ?: $this->parameters);
+			return $this->statement->fetchAll(PDO::FETCH_ASSOC);
 		} catch ( PDOException $e ) {
 			throw new RuntimeException('Query failed: ' . $e->getMessage());
 		}
@@ -100,9 +100,8 @@ class Query
 	public function getRow(?array $parametersOverride = null): Row
 	{
 		try {
-			$statement = $this->connection->prepare($this->statement);
-			$statement->execute($parametersOverride ?: $this->parameters);
-			return new Row($statement->fetch(PDO::FETCH_ASSOC));
+			$this->statement->execute($parametersOverride ?: $this->parameters);
+			return new Row($this->statement->fetch(PDO::FETCH_ASSOC));
 		} catch ( PDOException $e ) {
 			throw new RuntimeException('Query failed: ' . $e->getMessage());
 		}
@@ -119,9 +118,8 @@ class Query
 	public function getRowAsArray(?array $parametersOverride = null): Row
 	{
 		try {
-			$statement = $this->connection->prepare($this->statement);
-			$statement->execute($parametersOverride ?: $this->parameters);
-			return $statement->fetch(PDO::FETCH_ASSOC);
+			$this->statement->execute($parametersOverride ?: $this->parameters);
+			return $this->statement->fetch(PDO::FETCH_ASSOC);
 		} catch ( PDOException $e ) {
 			throw new RuntimeException('Query failed: ' . $e->getMessage());
 		}
@@ -138,8 +136,7 @@ class Query
 	public function exec(?array $parametersOverride = null): bool
 	{
 		try {
-			$statement = $this->connection->prepare($this->statement);
-			return $statement->execute($parametersOverride ?: $this->parameters);
+			return $this->statement->execute($parametersOverride ?: $this->parameters);
 		} catch ( PDOException $e ) {
 			throw new RuntimeException('Query failed: ' . $e->getMessage());
 		}
