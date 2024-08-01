@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none !important;
+}
+
+#circlewrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1 / 1;
+    width: 800px;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: fadeincircle 2s forwards;
+
+}
+
+#circle {
+    position: relative;
+    top: 0;
+    left: 0;
+    aspect-ratio: 1 / 1;
+
+
+    width: 100%;
+    background-image: url(circle.jpg);
+    background-size: contain;
+    background-blend-mode: screen;
+    mix-blend-mode: overlay;
+    animation: rotate 15s linear infinite;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadein .5s forwards .5s;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeincircle {
+    from {
+        opacity: 0;
+        display: none;
+    }
+    to {
+        display: block;
+        opacity: 0.8;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        display: none;
+    }
+    to {
+        display: block;
+        opacity: 1;
+    }
+}

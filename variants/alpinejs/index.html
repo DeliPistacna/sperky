@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Šperky</title>
+    <link href="/output.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="circlewrap" style="opacity:0">
+    <div id="circle" class="bg-amber-500">
+    </div>
+</div>
+
+<a class=" absolute left-0 top-0block m-3 bg-[#ffffff22] backdrop-blur-2xl  border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white transition px-5 py-1 rounded shadow"
+   href="/">
+    &larr;
+    Späť
+    &NonBreakingSpace;
+</a>
+
+<!--VERTICAL CENTER BODY-->
+<div class=" h-screen flex flex-col justify-center items-center
+">
+    <div class="max-w-3xl w-4/5 text-center">
+
+        <form
+                x-data="action()"
+                x-on:submit.prevent="getItemsCount"
+        >
+            <h1 class="text-amber-500 text-2xl mb-2">
+                Šperky zadanie | Alpine.js
+            </h1>
+            <button class="fade-in block w-full bg-[#ffffff22] backdrop-blur-2xl  mx-auto border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white transition px-2 py-1 rounded shadow">
+                Zistiť stav
+            </button>
+
+            <!--RESPONSE-->
+            <div x-cloak
+                 x-show="showResponse"
+                 x-transition
+                 class="mt-2"
+            >
+                Napočítali sme
+                <span x-text="currencyValue()"
+                      class="text-amber-500 font-bold"></span>
+                v skladových zásobách
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+<!--FOOTER-->
+<footer class="absolute bottom-0 w-full pb-5 mx-auto text-center text-amber-400">
+    Delaja Fedorco
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+<script src="/variants/alpinejs/script.js"></script>
+
+</body>
+</html>
